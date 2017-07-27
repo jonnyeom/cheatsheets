@@ -7,7 +7,7 @@
 
 
 
-### <a name="code">Code</a>
+### Code
 
 ##### Get Current ...
 * Node > `$node = \Drupal::routeMatch()->getParameter('node');`
@@ -35,7 +35,7 @@
 
 
 
-### <a name="theme">Theme</a>
+### Theme
 * Theme a form
 
   This Requires a hook_theme().
@@ -52,7 +52,7 @@
 
 
 
-### <a name="other">Other Notes to self</a>
+### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
 
 <br>
