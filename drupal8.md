@@ -1,29 +1,41 @@
-# Drupal 8 
+# Drupal 8
+[Code](#code)  
+[Theme](#theme)  
+[Other](#other)  
+<br>
+<br>
 
-## Code
 
-#### Get Current ...
+
+### <a name="code">Code</a>
+
+##### Get Current ...
 * Node > `$node = \Drupal::routeMatch()->getParameter('node');`
 * URL > `\Drupal::request()->getSchemeAndHttpHost()` = http://site.dev
 
-#### Classes ...
+##### Classes ...
 * EntityReferenceFieldItemList
 	* `->referencedEntities();`
 	* `->first()->get('entity')->getTarget()->getValue()` > Gets Referenced Entities.
 
-#### Kill Static Page Cache
+##### Kill Static Page Cache
 `\Drupal::service('page_cache_kill_switch')->trigger();`
 
-#### Load module code
+##### Load module code
 ` \Drupal::moduleHandler()->loadInclude('module_name', 'module');`
 
-#### Drupal.org Contrib
+##### Drupal.org Contrib
 * Patch file naming `[project_name]-[short-description]-[issue-number]-[comment-number].patch`
 
-#### phpcbf
+##### phpcbf
 `../vendor/bin/phpcbf -n --standard="modules/contrib/coder/coder_sniffer/Drupal" modules/custom/custom_module_name/`
 
-## Theme
+<br>
+<br>
+
+
+
+### <a name="theme">Theme</a>
 * Theme a form
 
   This Requires a hook_theme().
@@ -35,5 +47,13 @@
   ]
   ``` 
 
-## Other Notes to self
+<br>
+<br>
+
+
+
+### <a name="other">Other Notes to self</a>
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
+
+<br>
+<br>
