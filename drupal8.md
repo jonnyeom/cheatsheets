@@ -52,6 +52,19 @@
 
 
 
+### PHP
+* Pretty print a variable
+  ```php
+  <?php
+  highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
+  ?>
+  ```
+
+<br>
+<br>
+
+
+
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
 
