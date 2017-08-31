@@ -53,11 +53,24 @@
 
 
 ### PHP
-* Pretty print a variable
+* Pretty print a variable.
   ```php
   <?php
   highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
   ?>
+  ```
+
+<br>
+<br>
+
+
+
+### SQL
+* Show sql tables by size
+  ```sql
+  SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
+  FROM information_schema.tables 
+  WHERE table_schema='db_name' order by tablesize_mb;
   ```
 
 <br>
