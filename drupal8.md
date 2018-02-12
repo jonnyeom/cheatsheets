@@ -1,13 +1,43 @@
-# Drupal 8
-[Code](#code)  
+# Topics
+[PHP](#php)  
+[SQL](#sql)  
+[Drupal 8](#drupal-8)  
 [Theme](#theme)  
+[Linux](#linux)  
 [Other](#other)  
+
 <br>
 <br>
 
 
 
-### Code
+### PHP
+* Pretty print a variable.
+  ```php
+  <?php
+  highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
+  ?>
+  ```
+
+<br>
+<br>
+
+
+
+### SQL
+* Show sql tables by size
+  ```sql
+  SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
+  FROM information_schema.tables 
+  WHERE table_schema='db_name' order by tablesize_mb;
+  ```
+
+<br>
+<br>
+
+
+
+### Drupal 8
 
 ##### Get Current ...
 * Node > `$node = \Drupal::routeMatch()->getParameter('node');`
@@ -52,27 +82,13 @@
 
 
 
-### PHP
-* Pretty print a variable.
-  ```php
-  <?php
-  highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
-  ?>
+### Linux
+* Rsync remote to local
+
   ```
-
-<br>
-<br>
-
-
-
-### SQL
-* Show sql tables by size
-  ```sql
-  SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
-  FROM information_schema.tables 
-  WHERE table_schema='db_name' order by tablesize_mb;
+  rsync -ravz --omit-dir-times --exclude={dir,dir} server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
   ```
-
+  
 <br>
 <br>
 
