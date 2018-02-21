@@ -60,12 +60,16 @@
 ##### phpcbf
 `../vendor/bin/phpcbf -n --standard="modules/contrib/coder/coder_sniffer/Drupal" modules/custom/custom_module_name/`
 
+##### settings.local.php
+* Prevent caching of classes
+`$settings['class_loader_auto_detect'] = FALSE;`
+
 <br>
 <br>
 
 
 
-### Theme
+##### Theme
 * Theme a form
 
   This Requires a hook_theme().
