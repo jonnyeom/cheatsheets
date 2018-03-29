@@ -92,7 +92,7 @@
 * Rsync remote to local
 
   ```
-  rsync -ravz --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
+  rsync -ravz --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} --exclude='*.pdf' server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
   ```
   
 <br>
