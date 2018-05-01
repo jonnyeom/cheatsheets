@@ -31,6 +31,11 @@
   FROM information_schema.tables 
   WHERE table_schema='db_name' order by tablesize_mb;
   ```
+  
+* Show Sql Import status
+  ```
+  pv sqlfile.sql | mysql -u user -p dbname
+  ```
 
 <br>
 <br>
