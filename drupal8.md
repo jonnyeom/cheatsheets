@@ -104,6 +104,19 @@
 <br>
 
 
+### XDebug
+* php.ini
+  ```
+  xdebug.remote_enable = 1 
+  xdebug.profiler_enable_trigger = 1 
+  xdebug.remote_connect_back = 1 
+  xdebug.max_nesting_level = 300 
+  xdebug.idekey = PHPSTORM
+  ```
+  
+<br>
+<br>
+
 
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
