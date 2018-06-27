@@ -100,6 +100,15 @@
   rsync -ravz --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} --exclude='*.pdf' server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
   ```
   
+* Command for all directories in a directory.
+  ```
+  find files -type d -exec chmod 775 {} \;
+  ```
+  
+* Command for all files in a directory.
+  ```
+  find files -type f -exec chmod 664 {} \;
+  ```
 <br>
 <br>
 
