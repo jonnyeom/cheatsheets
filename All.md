@@ -46,6 +46,7 @@
 
 ##### Get Current ...
 * Node > `$node = \Drupal::routeMatch()->getParameter('node');`
+* Path > `$current_path = \Drupal::service('path.current')->getPath();`
 * URL > `\Drupal::request()->getSchemeAndHttpHost()` = http://site.dev
 * User Account > `\Drupal::currentUser()` or get `current_user`from $container.
 * User Object > `\Drupal\user\Entity\User::load($id)`. This can be retrieved from the User Account.
