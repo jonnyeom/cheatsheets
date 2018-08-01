@@ -72,6 +72,10 @@
 * Prevent caching of classes
 `$settings['class_loader_auto_detect'] = FALSE;`
 
+##### Twig Tricks
+* Add this to twig template if not rendering {{ content }}. This properly adds/invalidates cache tags.
+`{% set catch_cache = content|render %}`
+
 <br>
 <br>
 
