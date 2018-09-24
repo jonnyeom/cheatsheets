@@ -152,6 +152,12 @@
 <br>
 <br>
 
+### Other
+* Sample Production deployer Deployment command
+  ```
+  ./vendor/bin/dep deploy --branch=master production  --override-config
+  ```
+
 
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
