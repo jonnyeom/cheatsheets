@@ -152,6 +152,18 @@
 <br>
 <br>
 
+
+### Windows Server
+* Start MySQL
+```
+net start MySQL
+```
+
+  
+<br>
+<br>
+
+
 ### Other
 * Sample Production deployer Deployment command
   ```
