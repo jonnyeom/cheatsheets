@@ -169,7 +169,12 @@ net start MySQL
   ```
   ./vendor/bin/dep deploy --branch=master production  --override-config
   ```
-
+  
+* Sample Issue Close Message
+  ```
+  Issue resolved.
+  Please re-open this ticket for any questions/concerns!
+  ```
 
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
