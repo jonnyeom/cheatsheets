@@ -3,13 +3,12 @@
 [SQL](#sql)  
 [Drupal 8](#drupal-8)  
 [Theme](#theme)  
+[JS](#js)
 [Linux](#linux)  
 [Other](#other)  
 
 <br>
 <br>
-
-
 
 ### PHP
 * Pretty print a variable.
@@ -21,8 +20,6 @@
 
 <br>
 <br>
-
-
 
 ### SQL
 * Show sql tables by size
@@ -39,8 +36,6 @@
 
 <br>
 <br>
-
-
 
 ### Drupal 8
 
@@ -79,8 +74,6 @@
 <br>
 <br>
 
-
-
 ##### Theme
 * Theme a form
 
@@ -96,7 +89,16 @@
 <br>
 <br>
 
+### JS
+* Console log with auto-indents
+  ```
+  function log(message) {
+    console.log('  '.repeat(new Error().stack.match(/\m/g).length -2) + message);
+  }
+  ```
 
+<br>
+<br>
 
 ### Linux
 * Rsync remote to local
@@ -119,9 +121,9 @@
   ```
   find files -type f -exec chmod 664 {} \;
   ```
-<br>
-<br>
 
+<br>
+<br>
 
 ### XDebug
 * php.ini
@@ -147,22 +149,18 @@
   xdebug.max_nesting_level=500
   xdebug.idekey=PHPSTORM
   ```
-  
-  
-<br>
-<br>
 
+<br>
+<br>
 
 ### Windows Server
 * Start MySQL
 ```
 net start MySQL
 ```
-
   
 <br>
 <br>
-
 
 ### Other
 * Sample Production deployer Deployment command
