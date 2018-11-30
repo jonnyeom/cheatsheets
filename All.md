@@ -3,7 +3,7 @@
 [SQL](#sql)  
 [Drupal 8](#drupal-8)  
 [Theme](#theme)  
-[JS](#js)
+[JS](#js)  
 [Linux](#linux)  
 [Other](#other)  
 
