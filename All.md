@@ -61,7 +61,7 @@
 * Patch file naming `[project_name]-[short-description]-[issue-number]-[comment-number].patch`
 
 ##### phpcbf
-`../vendor/bin/phpcbf -n --standard="modules/contrib/coder/coder_sniffer/Drupal" modules/custom/custom_module_name/`
+`../vendor/bin/phpcbf -n --standard="../vendor/drupal/coder/coder_sniffer/Drupal" modules/custom/custom_module_name/`
 
 ##### settings.local.php
 * Prevent caching of classes
@@ -126,6 +126,10 @@
 <br>
 
 ### XDebug
+* EXPORT command
+  ```
+  export XDEBUG_CONFIG="idekey=PHPSTORM"
+  ```
 * php.ini
   ```
   xdebug.remote_enable = 1 
