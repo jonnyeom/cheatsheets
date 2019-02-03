@@ -96,6 +96,18 @@
     console.log('  '.repeat(new Error().stack.match(/\m/g).length -2) + message);
   }
   ```
+  
+#### Vue
+* No Chunks, No Hash
+   ```
+   // vue.config.js
+   module.exports = {
+     filenameHashing: false,
+     chainWebpack: config => {
+       config.optimization.delete('splitChunks')
+     }
+   }
+   ```
 
 <br>
 <br>
