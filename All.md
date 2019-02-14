@@ -145,7 +145,6 @@
 * php.ini
   ```
   xdebug.remote_enable = 1 
-  xdebug.profiler_enable_trigger = 1 
   xdebug.remote_connect_back = 1 
   xdebug.max_nesting_level = 300 
   xdebug.idekey = PHPSTORM
@@ -155,8 +154,6 @@
   [XDebug]
   zend_extension="/usr/lib/php/7.2/modules/xdebug-2.6.0.so"
 
-  xdebug.profiler_enable = 0
-  xdebug.profiler_output_dir = "/tmp"
   xdebug.remote_autostart=true
   xdebug.remote_enable=1
   xdebug.remote_connect=1
