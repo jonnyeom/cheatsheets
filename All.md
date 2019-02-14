@@ -189,6 +189,12 @@ net start MySQL
   Issue resolved.
   Please re-open this ticket for any questions/concerns!
   ```
+  
+* 502 Bad Gateway Nginx
+  ```
+  fastcgi_buffers 8 16k;
+  fastcgi_buffer_size 32k;
+  ```
 
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
