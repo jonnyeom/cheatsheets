@@ -175,6 +175,37 @@ net start MySQL
 <br>
 <br>
 
+### Custom Solr Functions
+
+Drupal: hook_search_api_solr_query_alter()
+```php
+// If the date is in the future, give the score a diminshing boost.
+$solr_field_names = $query->getIndex()->getServerInstance()->getBackend()->getSolrFieldNames($query->getIndex());
+$boost_functions = [];
+if ($solr_field_names['future_only_date']) {
+  $boost_functions[] = 'if(min(0,sub(ms(NOW/HOUR),ms(' . $solr_field_names['future_only_date'] . '))),recip(ms(' . $solr_field_names['future_only_date'] . ',NOW/HOUR),3.16e-11,3,.9),0)^2';
+}
+
+// Boost content_type_to_match Content based on the published date.
+// The closer the date is to the current date, the higher the boost.
+if ($solr_field_names['published_date']) {
+  $boost_functions[] = 'if(eq(' . $solr_field_names['type'] .',\'content_type_to_match\'),recip(abs(ms(' . $solr_field_names['published_date'] . ',NOW/HOUR)),3.16e-11,3,.9),0)^2';
+}
+
+// Apply all the boost functions.
+if ($boost_functions) {
+  $boost_functions = implode(' ', $boost_functions);
+  $solarium_query->getEDisMax()->setBoostFunctions($boost_functions);
+  $solarium_query->addParam('defType', 'edismax');
+}
+```
+Links to helpful webpages with graphs.
+* https://atendesigngroup.com/blog/drupal-8-apache-solr-boost-search-term-relevance-publish-date
+* https://www.hashbangcode.com/article/drupal-8-date-search-boosting-search-api-and-solr-search
+  
+<br>
+<br>
+
 ### Other
 * Sample Production deployer Deployment command
   ```
