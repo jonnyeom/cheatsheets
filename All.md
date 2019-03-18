@@ -224,6 +224,14 @@ Links to helpful webpages with graphs.
   fastcgi_buffer_size 32k;
   ```
 
+  
+* Increase 504 Nginx Gateway w/ php-fpm
+  ```
+  /etc/php/7.1/fpm/php.ini max_execution_time = 300;
+  /etc/php/7.1/fpm/pool.d/www.conf reequest_terminate_timeout = 300;
+  /etc/nginx/sites-enabled/192...conf fastcgi_read_timeout = 300;
+  ```
+
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
 
