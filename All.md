@@ -46,10 +46,12 @@
 * User Account > `\Drupal::currentUser()` or get `current_user`from $container.
 * User Object > `\Drupal\user\Entity\User::load($id)`. This can be retrieved from the User Account.
 
-##### Classes ...
-* EntityReferenceFieldItemList
-	* `->referencedEntities();`
-	* `->first()->get('entity')->getTarget()->getValue()` > Gets Referenced Entities.
+##### Log Exception Error
+```php
+$e = new Exception();
+$variables = Error::decodeException($e);
+\Drupal::logger('channel')->error('%type: @message in %function (line %line of %file) @backtrace_string.', $error + ['backtrace' => $backtrace]);
+```
 
 ##### Kill Static Page Cache
 `\Drupal::service('page_cache_kill_switch')->trigger();`
