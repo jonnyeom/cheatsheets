@@ -1,4 +1,5 @@
 # Topics
+[Issue Template](#issue-template)  
 [PHP](#php)  
 [SQL](#sql)  
 [Drupal 8](#drupal-8)  
@@ -9,6 +10,26 @@
 
 <br>
 <br>
+
+### Issue Template
+```
+### Description
+Describe your issue here.
+
+### Environment
+* version of angular-translate
+* version of angular
+* which browser and its version
+
+### Steps to reproduce
+Tell us how to reproduce this issue. Please provide a working demo, you can use [this template](https://plnkr.co/edit/XorWgI?p=preview) as a base.
+
+### Expected behavior
+Tell us what should happen
+
+### Actual behavior
+Tell us what happens instead
+```
 
 ### PHP
 * Pretty print a variable.
