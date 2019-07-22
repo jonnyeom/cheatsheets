@@ -254,6 +254,9 @@ Links to helpful webpages with graphs.
   /etc/php/7.?/fpm/pool.d/www.conf reequest_terminate_timeout = 300;
   /etc/nginx/sites-enabled/192...conf fastcgi_read_timeout = 300;
   ```
+  
+### Slack Themes
+* Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
 
 ### Other Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
