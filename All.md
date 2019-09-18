@@ -168,7 +168,7 @@ $variables = Error::decodeException($e);
 * php.ini
   ```
   xdebug.remote_enable = 1 
-  xdebug.remote_connect_back = 1 
+  xdebug.remote_connect_back = 0
   xdebug.max_nesting_level = 300 
   xdebug.idekey = PHPSTORM
   ```
