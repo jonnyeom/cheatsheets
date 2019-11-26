@@ -161,9 +161,9 @@ $variables = Error::decodeException($e);
 <br>
 
 ### XDebug
-* EXPORT command
+* EXPORT command for cli debugging
   ```
-  export XDEBUG_CONFIG="idekey=PHPSTORM"
+  export XDEBUG_CONFIG="idekey=PHPSTORM remote_enable=1 remote_mode=req remote_port=9000 remote_host=10.0.2.2 remote_connect_back=0"
   ```
 * php.ini
   ```
