@@ -256,6 +256,11 @@ Links to helpful webpages with graphs.
   /etc/nginx/sites-enabled/192...conf fastcgi_read_timeout = 300;
   ```
   
+* Dell 5587 boot kernel params
+  ```
+  acpi_rev_override=1 acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=native
+  ```
+  
 ### Slack Themes
 * Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
 
