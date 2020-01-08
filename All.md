@@ -261,6 +261,32 @@ Links to helpful webpages with graphs.
   acpi_rev_override=1 acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=native
   ```
   
+* Vagrant Hostsupdator PWless sudo
+  ```
+  vagrant ALL=(ALL) NOPASSWD:ALL
+  Defaults:vagrant !requiretty
+
+  # Allow passwordless startup of Vagrant with vagrant-hostsupdater.
+  Cmnd_Alias VAGRANT_HOSTS_ADD = /usr/bin/sh -c echo "*" >> /etc/hosts
+  Cmnd_Alias VAGRANT_HOSTS_ADD_1 = /usr/bin/sh -c 'echo "*" >> /etc/hosts'
+  Cmnd_Alias VAGRANT_HOSTS_ADD_2 = /bin/sh -c echo "*" >> /etc/hosts
+  Cmnd_Alias VAGRANT_HOSTS_REMOVE = /usr/bin/sed -i -e /*/ d /etc/hosts
+  Cmnd_Alias VAGRANT_HOSTS_REMOVE_1 = /bin/sed -i -e /*/ d /etc/hosts
+  %jonny ALL=(root) NOPASSWD: VAGRANT_HOSTS_ADD, VAGRANT_HOSTS_ADD_1, VAGRANT_HOSTS_ADD_2, VAGRANT_HOSTS_REMOVE, VAGRAND_HOSTS_REMOVE_1
+  ```
+  
+* Vagrant Syncedfolders PWless sudo
+  ```
+  Cmnd_Alias VAGRANT_EXPORTS_CHOWN = /bin/chown 0\:0 /tmp/*
+  Cmnd_Alias VAGRANT_EXPORTS_MV = /bin/mv -f /tmp/* /etc/exports
+  Cmnd_Alias VAGRANT_NFSD_CHECK = /etc/init.d/nfs-kernel-server status
+  Cmnd_Alias VAGRANT_NFSD_START = /etc/init.d/nfs-kernel-server start
+  Cmnd_Alias VAGRANT_NFSD_CHECK_2 = /usr/bin/systemctl status --no-pager nfs-server.service
+  Cmnd_Alias VAGRANT_NFSD_START_2 = /usr/bin/systemctl start nfs-server.service
+  Cmnd_Alias VAGRANT_NFSD_APPLY = /usr/sbin/exportfs -ar
+  %jonny ALL=(root) NOPASSWD: VAGRANT_EXPORTS_CHOWN, VAGRANT_EXPORTS_MV, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_CHECK_2, VAGRANT_NFSD_START_2, VAGRANT_NFSD_APPLY
+  ```
+  
 ### Slack Themes
 * Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
 
