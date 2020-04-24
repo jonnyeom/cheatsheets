@@ -156,6 +156,16 @@ $variables = Error::decodeException($e);
   ```
   find files -type f -exec chmod 664 {} \;
   ```
+  
+* Bash arrow completion
+  `.inputrc`
+  ```
+  $include /etc/inputrc
+  ## arrow up
+  "\e[A":history-search-backward
+  ## arrow down
+  "\e[B":history-search-forward
+  ```
 
 <br>
 <br>
