@@ -60,13 +60,6 @@ Tell us what happens instead
 
 ### Drupal 8
 
-##### Get Current ...
-* Node > `$node = \Drupal::routeMatch()->getParameter('node');`
-* Path > `$current_path = \Drupal::service('path.current')->getPath();`
-* URL > `\Drupal::request()->getSchemeAndHttpHost()` = http://site.dev
-* User Account > `\Drupal::currentUser()` or get `current_user`from $container.
-* User Object > `\Drupal\user\Entity\User::load($id)`. This can be retrieved from the User Account.
-
 ##### Log Exception Error
 ```php
 $e = new Exception();
@@ -77,18 +70,15 @@ $variables = Error::decodeException($e);
 ##### Kill Static Page Cache
 `\Drupal::service('page_cache_kill_switch')->trigger();`
 
-##### Load module code
-` \Drupal::moduleHandler()->loadInclude('module_name', 'module');`
+##### settings.local.php
+* Prevent caching of classes
+`$settings['class_loader_auto_detect'] = FALSE;`
 
 ##### Drupal.org Contrib
 * Patch file naming `[project_name]-[short-description]-[issue-number]-[comment-number].patch`
 
 ##### phpcbf
 `../vendor/bin/phpcbf -n --standard="../vendor/drupal/coder/coder_sniffer/Drupal" modules/custom/custom_module_name/`
-
-##### settings.local.php
-* Prevent caching of classes
-`$settings['class_loader_auto_detect'] = FALSE;`
 
 ##### Twig Tricks
 * Add this to twig template if not rendering {{ content }}. This properly adds/invalidates cache tags.
