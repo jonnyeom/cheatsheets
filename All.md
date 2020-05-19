@@ -252,7 +252,7 @@ Links to helpful webpages with graphs.
 * Increase 504 Nginx Gateway w/ php-fpm
   ```
   /etc/php/7.?/fpm/php.ini max_execution_time = 300;
-  /etc/php/7.?/fpm/pool.d/www.conf reequest_terminate_timeout = 300;
+  /etc/php/7.?/fpm/pool.d/www.conf request_terminate_timeout = 300;
   /etc/nginx/sites-enabled/192...conf fastcgi_read_timeout = 300;
   ```
   
