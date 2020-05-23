@@ -7,7 +7,8 @@
 [JS](#js)  
 [Linux](#linux)  
 [Other](#other)  
-
+[Other](#slack-themes)  
+[Other](#notes-to-self)  
 <br>
 <br>
 
@@ -290,7 +291,7 @@ Links to helpful webpages with graphs.
 ### Slack Themes
 * Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
 
-### Other Notes to self
+### Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
 
 <br>
