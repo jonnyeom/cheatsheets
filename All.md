@@ -5,10 +5,11 @@
 [Drupal 8](#drupal-8)  
 [Theme](#theme)  
 [JS](#js)  
-[Linux](#linux)  
+[Linux](#linux) 
+[Mac](#mac)
 [Other](#other)  
-[Other](#slack-themes)  
-[Other](#notes-to-self)  
+[Slack Themes](#slack-themes)  
+[Notes To Self](#notes-to-self)  
 <br>
 <br>
 
@@ -160,6 +161,13 @@ $variables = Error::decodeException($e);
 
 <br>
 <br>
+
+### Mac
+* Remount NTFS drive as writable (Install osxfuse + ntfs-3g first)
+   ```
+   sudo umount /dev/disk2s1
+   sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other -o auto_xattr
+   ```
 
 ### XDebug
 * EXPORT command for cli debugging
