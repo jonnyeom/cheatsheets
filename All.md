@@ -240,6 +240,11 @@ Links to helpful webpages with graphs.
 <br>
 
 ### Other
+* Faster npm install (Also try `npm ci`
+  ```
+  npm install --prefer-offline --no-audit --progress=false
+  ```
+
 * Sample Production deployer Deployment command
   ```
   ./vendor/bin/dep deploy --branch=master production  --override-config
