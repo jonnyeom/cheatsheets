@@ -134,6 +134,11 @@ $variables = Error::decodeException($e);
   rsync -ravz --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} --exclude='*.pdf' server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
   ```
   
+* Search for string in all gz files in a directory.
+  ```
+  find . -name '*.gz' -print0 | xargs -0 zgrep "pattern"
+  ```
+  
 * Search for string in all files in a directory.
   ```
   grep -inr "Text" folder/to/be/searched/
