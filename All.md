@@ -7,7 +7,9 @@
 [JS](#js)  
 [Linux](#linux)  
 [Mac](#mac)  
+[XDebug](#xdebug)  
 [Other](#other)  
+[Windows Server](#windows-server)  
 [Slack Themes](#slack-themes)  
 [Notes To Self](#notes-to-self)  
 <br>
