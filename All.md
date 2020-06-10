@@ -186,7 +186,6 @@ $variables = Error::decodeException($e);
   ```
   xdebug.remote_enable = 1 
   xdebug.remote_connect_back = 0
-  xdebug.max_nesting_level = 300 
   xdebug.idekey = PHPSTORM
   ```
 * cli php.ini
@@ -199,7 +198,6 @@ $variables = Error::decodeException($e);
   xdebug.remote_connect=1
   xdebug.remote_host=10.0.2.2
   xdebug.remote_port=9000
-  xdebug.max_nesting_level=500
   xdebug.idekey=PHPSTORM
   ```
 
@@ -262,7 +260,8 @@ Links to helpful webpages with graphs.
   Issue resolved.
   Please re-open this ticket for any questions/concerns!
   ```
-  
+  100-night
+trial
 * 502 Bad Gateway Nginx
   ```
   fastcgi_buffers 8 16k;
