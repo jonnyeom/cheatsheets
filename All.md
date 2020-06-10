@@ -7,7 +7,7 @@
 [JS](#js)  
 [Linux](#linux)  
 [Mac](#mac)  
-[XDebug](#xdebug)  
+[xdebug](#xdebug)  
 [Other](#other)  
 [Windows Server](#windows-server)  
 [Slack Themes](#slack-themes)  
@@ -200,6 +200,10 @@ $variables = Error::decodeException($e);
   xdebug.remote_port=9000
   xdebug.idekey=PHPSTORM
   ```
+* `Cannot accept external Xdebug connection: Cannot evaluate expression 'isset($_SERVER['PHP_IDE_CONFIG'])'`  
+  Add `/usr/lib/php/sessionclean` to the session_config line. e.g.  
+  **/usr/lib/php/sessionclean**
+  > session_config=$(PHP_INI_SCAN_DIR=/etc/php/${version}/${conf_dir}/conf.d/ php${version} -c /etc/php/${version}/${conf_dir}/php.ini -d "xdebug.remote_autostart=0" -d "error_reporting='~E_ALL'" -r 'foreach(ini_get_all("session") as $k => $v) echo "$k=".$v["local_value"]."\n";')
 
 <br>
 <br>
