@@ -193,9 +193,8 @@ $variables = Error::decodeException($e);
   [XDebug]
   zend_extension="/usr/lib/php/7.2/modules/xdebug-2.6.0.so"
 
-  xdebug.remote_autostart=true
+  xdebug.remote_autostart=true (do I need this one)
   xdebug.remote_enable=1
-  xdebug.remote_connect=1
   xdebug.remote_host=10.0.2.2
   xdebug.remote_port=9000
   xdebug.idekey=PHPSTORM
