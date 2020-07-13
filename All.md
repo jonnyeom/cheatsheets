@@ -8,6 +8,7 @@
 [Linux](#linux)  
 [Mac](#mac)  
 [xdebug](#xdebug)  
+[composer](#composer)  
 [Other](#other)  
 [Windows Server](#windows-server)  
 [Slack Themes](#slack-themes)  
@@ -207,11 +208,21 @@ $variables = Error::decodeException($e);
 <br>
 <br>
 
+### Composer
+* Get all composer config
+  ```
+  composer config --list --global
+  ```
+* Default global home dir
+  ```
+  ~/.config/composer
+  ```
+
 ### Windows Server
 * Start MySQL
-```
-net start MySQL
-```
+  ```
+  net start MySQL
+  ```
   
 <br>
 <br>
