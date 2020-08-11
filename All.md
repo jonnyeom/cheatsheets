@@ -324,6 +324,7 @@ trial
   
 ### Slack Themes
 * Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
+* Drupal `#193549,#E7412A,#FFC600,#005D66,#E7412A,#FFFFFF,#FFC600,#E7412A,#005D66,#FFFFFF`
 
 ### Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
