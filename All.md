@@ -298,6 +298,8 @@ trial
   
 * Vagrant Hostsupdator PWless sudo
   ```
+  # /etc/sudoers.d/vagrant_hostsupdater
+  
   vagrant ALL=(ALL) NOPASSWD:ALL
   Defaults:vagrant !requiretty
 
@@ -312,6 +314,8 @@ trial
   
 * Vagrant Syncedfolders PWless sudo
   ```
+  # /etc/sudoers.d/vagrant_syncedfolders
+  
   Cmnd_Alias VAGRANT_EXPORTS_CHOWN = /bin/chown 0\:0 /tmp/*
   Cmnd_Alias VAGRANT_EXPORTS_MV = /bin/mv -f /tmp/* /etc/exports
   Cmnd_Alias VAGRANT_NFSD_CHECK = /etc/init.d/nfs-kernel-server status
