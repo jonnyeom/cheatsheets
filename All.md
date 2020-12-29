@@ -9,6 +9,7 @@
 [Mac](#mac)  
 [xdebug](#xdebug)  
 [composer](#composer)  
+[code references](#code-references)
 [Other](#other)  
 [Windows Server](#windows-server)  
 [Slack Themes](#slack-themes)  
@@ -217,6 +218,9 @@ $variables = Error::decodeException($e);
   ```
   ~/.config/composer
   ```
+
+### Code References
+* Client - https://github.com/KnpLabs/php-github-api/blob/master/lib/Github/Client.php
 
 ### Windows Server
 * Start MySQL
