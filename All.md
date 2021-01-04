@@ -1,19 +1,19 @@
-# Topics
+
+[composer](#composer)  
+[code references](#code-references)  
+[Drupal](#drupal)  
 [Issue Template](#issue-template)  
-[PHP](#php)  
-[SQL](#sql)  
-[Drupal 8](#drupal-8)  
-[Theme](#theme)  
 [JS](#js)  
 [Linux](#linux)  
 [Mac](#mac)  
-[xdebug](#xdebug)  
-[composer](#composer)  
-[code references](#code-references)
-[Other](#other)  
-[Windows Server](#windows-server)  
-[Slack Themes](#slack-themes)  
 [Notes To Self](#notes-to-self)  
+[Other](#other)  
+[PHP](#php)  
+[Slack Themes](#slack-themes)  
+[SQL](#sql)  
+[Theme](#theme)  
+[Windows Server](#windows-server)  
+[xdebug](#xdebug)  
 <br>
 <br>
 
@@ -64,7 +64,7 @@ Tell us what happens instead
 <br>
 <br>
 
-### Drupal 8
+### Drupal
 
 ##### Log Exception Error
 ```php
@@ -74,7 +74,8 @@ $variables = Error::decodeException($e);
 ```
 
 ##### Kill Static Page Cache
-`\Drupal::service('page_cache_kill_switch')->trigger();`
+- `\Drupal::service('page_cache_kill_switch')->trigger();`
+- OR `no_cache` in `routing.yml`
 
 ##### settings.local.php
 * Prevent caching of classes
@@ -90,6 +91,8 @@ $variables = Error::decodeException($e);
 * Add this to twig template if not rendering {{ content }}. This properly adds/invalidates cache tags.
 `{% set catch_cache = content|render %}`
 
+##### Priority
+- Higher comes first. 100 starts before 0
 <br>
 <br>
 
