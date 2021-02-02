@@ -330,11 +330,11 @@ trial
   [XDebug]
   zend_extension="/usr/lib/php/7.4/modules/xdebug-2.9.5.so"
 
-  xdebug.remote_autostart=true (do I need this one)
   xdebug.remote_enable=1
   xdebug.remote_host=10.0.2.2
   xdebug.remote_port=9000
   xdebug.idekey=PHPSTORM
+  xdebug.remote_autostart=true (I dont think I need this one)
   ```
 * `Cannot accept external Xdebug connection: Cannot evaluate expression 'isset($_SERVER['PHP_IDE_CONFIG'])'`  
   Add `/usr/lib/php/sessionclean` to the session_config line. e.g.  
