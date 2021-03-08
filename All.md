@@ -314,28 +314,31 @@ trial
 
 
 ### XDebug
-* EXPORT command for cli debugging
-  ```
-  export XDEBUG_CONFIG="idekey=PHPSTORM remote_enable=1 remote_mode=req remote_port=9000 remote_host=10.0.2.2 remote_connect_back=0"
-  export PHP_IDE_CONFIG="serverName=nameOfYourServer"
-  ```
-* php.ini
+* XDebug for command line
+  * (preferred) run these EXPORT commands each time you need it.
+    ```
+    export XDEBUG_CONFIG="idekey=PHPSTORM remote_enable=1 remote_mode=req remote_port=9000 remote_host=10.0.2.2 remote_connect_back=0"
+    export PHP_IDE_CONFIG="serverName=nameOfYourServer"
+    ```
+  * OR Set cli php.ini
+    ```
+    [XDebug]
+    zend_extension="/usr/lib/php/7.4/modules/xdebug-2.9.5.so"
+
+    xdebug.remote_enable=1
+    xdebug.remote_host=10.0.2.2
+    xdebug.remote_port=9000
+    xdebug.idekey=PHPSTORM
+    xdebug.remote_autostart=true (I dont think I need this one)
+    ```
+  
+* fpm php.ini
   ```
   xdebug.remote_enable = 1 
   xdebug.remote_connect_back = 0
   xdebug.idekey = PHPSTORM
   ```
-* cli php.ini
-  ```
-  [XDebug]
-  zend_extension="/usr/lib/php/7.4/modules/xdebug-2.9.5.so"
-
-  xdebug.remote_enable=1
-  xdebug.remote_host=10.0.2.2
-  xdebug.remote_port=9000
-  xdebug.idekey=PHPSTORM
-  xdebug.remote_autostart=true (I dont think I need this one)
-  ```
+  
 * `Cannot accept external Xdebug connection: Cannot evaluate expression 'isset($_SERVER['PHP_IDE_CONFIG'])'`  
   Add `/usr/lib/php/sessionclean` to the session_config line. e.g.  
   **/usr/lib/php/sessionclean**
