@@ -161,6 +161,11 @@ $variables = Error::decodeException($e);
   find files -type f -exec chmod 664 {} \;
   ```
   
+* Change default shell
+  ```sh
+  usermod --shell /bin/bash username
+  ```
+  
 * Bash arrow completion
   `.inputrc`
   ```
