@@ -138,7 +138,7 @@ $variables = Error::decodeException($e);
 * Rsync remote to local
 
   ```
-  rsync -ravz --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} --exclude='*.pdf' server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
+  rsync -ravz --no-perms --no-owner --no-group --omit-dir-times --exclude={php,css,js,google_tag,styles,xmlsitemap} --exclude='*.pdf' server:/srv/www//project/web/sites/default/files/ web/sites/default/files/
   ```
   
 * Search for string in all gz files in a directory.
