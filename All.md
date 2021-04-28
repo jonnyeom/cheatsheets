@@ -10,7 +10,7 @@
 [Other](#other)  
 [PHP](#php)  
 [Slack Themes](#slack-themes)  
-[SQL](#sql)  
+[sql](#sql)  
 [Theme](#theme)  
 [Windows Server](#windows-server)  
 [xdebug](#xdebug)  
@@ -48,7 +48,7 @@ Tell us what happens instead
 <br>
 <br>
 
-### SQL
+### sql
 * Show sql tables by size
   ```sql
   SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
@@ -57,9 +57,20 @@ Tell us what happens instead
   ```
   
 * Show Sql Import status
-  ```
+  ```sh
   pv sqlfile.sql | mysql -u user -p dbname
   ```
+
+* sql import error `Unknown collation: 'utf8mb4_0900_ai_ci'`
+  ```sh
+  # For mac.
+  sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' 2019-10-26-prod.sql
+  
+  # For linux.
+  sed -e 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' -i myfilename.sql
+  ```
+  Solution from [this github issue](https://github.com/drud/ddev/issues/1902)<br>
+  This usually happens when importing from mysql 8
 
 <br>
 <br>
