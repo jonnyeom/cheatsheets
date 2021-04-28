@@ -71,6 +71,13 @@ Tell us what happens instead
   ```
   Solution from [this github issue](https://github.com/drud/ddev/issues/1902)<br>
   This usually happens when importing from mysql 8
+  
+* sql import error `@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty`
+ 
+  ```sh
+  ../vendor/bin/drush sql-dump --extra-dump=--set-gtid-purged=OFF | gzip > /tmp/db-backup.sql.gz
+  ```
+  Solution from [this stackoverflow issue](https://superuser.com/questions/906843/import-mysql-data-failed-with-error-1839)
 
 <br>
 <br>
