@@ -4,6 +4,7 @@
 [Drupal](#drupal)  
 [Issue Template](#issue-template)  
 [JS](#js)  
+[GatsbyJS](#gatsbyjs)
 [Linux](#linux)  
 [Mac](#mac)  
 [Notes To Self](#notes-to-self)  
@@ -134,6 +135,19 @@ $variables = Error::decodeException($e);
   ```
   function log(message) {
     console.log('  '.repeat(new Error().stack.match(/\m/g).length -2) + message);
+  }
+  ```
+  
+  
+### GatsbyJS
+* Prevent render before running server side js [link](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
+  ```
+  const [hasMounted, setHasMounted] = React.useState(false);
+  React.useEffect(() => {
+      setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+      return null;
   }
   ```
   
