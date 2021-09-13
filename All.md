@@ -4,7 +4,7 @@
 [Drupal](#drupal)  
 [Issue Template](#issue-template)  
 [JS](#js)  
-[GatsbyJS](#gatsbyjs)
+[GatsbyJS](#gatsbyjs)  
 [Linux](#linux)  
 [Mac](#mac)  
 [Notes To Self](#notes-to-self)  
