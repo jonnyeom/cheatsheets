@@ -79,6 +79,18 @@ Tell us what happens instead
   ../vendor/bin/drush sql-dump --extra-dump=--set-gtid-purged=OFF | gzip > /tmp/db-backup.sql.gz
   ```
   Solution from [this stackoverflow issue](https://superuser.com/questions/906843/import-mysql-data-failed-with-error-1839)
+  
+* sql give SUPER priveleges to a user
+  ```sql
+  grant super on *.* to 'my_user'@'localhost';
+  revoke super on *.* from 'my_user'@'localhost';
+  ```
+* search within sql file
+  ```bash
+  sed -n -e 123456p your-file.sql
+  sed -n 123455,123457p your-file.sql
+  ```
+  
 
 <br>
 <br>
