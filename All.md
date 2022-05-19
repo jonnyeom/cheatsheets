@@ -262,6 +262,9 @@ $variables = Error::decodeException($e);
   \dv \* List views *\
   \du \* List users + roles *\
   ```
+  
+<br>
+<br>
 
 ### Windows Server
 * Start MySQL
