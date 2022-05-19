@@ -10,6 +10,7 @@
 [Notes To Self](#notes-to-self)  
 [Other](#other)  
 [PHP](#php)  
+[psql](#psql)  
 [Slack Themes](#slack-themes)  
 [sql](#sql)  
 [Theme](#theme)  
@@ -151,7 +152,7 @@ $variables = Error::decodeException($e);
   ```
   
   
-### GatsbyJS
+#### GatsbyJS
 * Prevent render before running server side js [link](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
   ```
   const [hasMounted, setHasMounted] = React.useState(false);
@@ -232,7 +233,7 @@ $variables = Error::decodeException($e);
 
 ### Composer
 * Get all composer config
-  ```
+  ```bash
   composer config --list --global
   ```
 * Default global home dir
@@ -242,6 +243,25 @@ $variables = Error::decodeException($e);
 
 ### Code References
 * Client - https://github.com/KnpLabs/php-github-api/blob/master/lib/Github/Client.php
+
+### psql
+* Connect
+  ```bash
+  psql -h host -d database -U user -W
+  ```
+* psql commands
+  ```psql
+  \l \* List databases *\
+  \s \* Command History  *\
+  \? \* Help  *\
+  \q \* Quit  *\
+  
+  \dt \* List tables *\
+  \dn \* List schemas *\
+  \df \* List functions *\
+  \dv \* List views *\
+  \du \* List users + roles *\
+  ```
 
 ### Windows Server
 * Start MySQL
