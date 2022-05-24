@@ -10,6 +10,7 @@
 [Notes To Self](#notes-to-self)  
 [Other](#other)  
 [PHP](#php)  
+[PHPUnit](#phpunit)  
 [psql](#psql)  
 [Slack Themes](#slack-themes)  
 [sql](#sql)  
@@ -39,6 +40,9 @@ Tell us what should happen
 Tell us what happens instead
 ```
 
+<br>
+<br>
+
 ### PHP
 * Pretty print a variable.
   ```php
@@ -50,7 +54,16 @@ Tell us what happens instead
 <br>
 <br>
 
-### sql
+### PHPUnit
+* Disable deprecations notifications
+  ```xml
+      <server name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+  ```
+
+<br>
+<br>
+
+### SQL
 * Show sql tables by size
   ```sql
   SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
