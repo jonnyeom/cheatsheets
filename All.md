@@ -1,21 +1,22 @@
 
 [composer](#composer)  
 [code references](#code-references)  
-[Drupal](#drupal)  
+[drupal](#drupal)  
+[docker](#docker)  
 [Issue Template](#issue-template)  
-[JS](#js)  
+[javascript](#js)  
 [GatsbyJS](#gatsbyjs)  
-[Linux](#linux)  
-[Mac](#mac)  
-[Notes To Self](#notes-to-self)  
-[Other](#other)  
-[PHP](#php)  
+[linux](#linux)  
+[mac](#mac)  
+[notes to self](#notes-to-self)  
+[other](#other)  
+[php](#php)  
 [PHPUnit](#phpunit)  
 [psql](#psql)  
-[Slack Themes](#slack-themes)  
+[slack themes](#slack-themes)  
 [sql](#sql)  
-[Theme](#theme)  
-[Windows Server](#windows-server)  
+[theme](#theme)  
+[windows server](#windows-server)  
 [xdebug](#xdebug)  
 <br>
 <br>
@@ -104,6 +105,21 @@ Tell us what happens instead
   sed -n -e 123456p your-file.sql
   sed -n 123455,123457p your-file.sql
   ```
+  
+
+<br>
+<br>
+
+### Docker
+##### SSH into docker-compose container
+```bash
+# as default user
+# here php is container name
+docker-compose -f docker-compose.yml exec -e php /bin/sh
+
+# as root
+docker-compose -f docker-compose.yml -f docker-compose.osx.yml exec -e XDEBUG_MODE=off -u root php /bin/sh
+```
   
 
 <br>
