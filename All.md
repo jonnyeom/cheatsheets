@@ -235,6 +235,11 @@ $variables = Error::decodeException($e);
   find files -type f -exec chmod 664 {} \;
   ```
   
+* List subdirectories in order of size.
+  ```bash
+  du -sh ./node_modules/* | sort -nr | grep '\dM.*'
+  ```
+  
 * Change default shell
   ```sh
   usermod --shell /bin/bash username
