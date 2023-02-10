@@ -51,6 +51,12 @@ Tell us what happens instead
   highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
   ?>
   ```
+* Install ext-imagick on macos
+   ```bash
+   brew instal pkg-config
+   brew install imagemagick
+   pecl install imagick
+   ```
 
 <br>
 <br>
