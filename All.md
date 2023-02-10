@@ -21,6 +21,29 @@
 <br>
 <br>
 
+
+
+### Composer
+* Get all composer config
+  ```bash
+  composer config --list --global
+  ```
+* Default global home dir
+  ```
+  ~/.config/composer
+  ```
+
+<br>
+<br>
+
+
+### Code References
+* Client - https://github.com/KnpLabs/php-github-api/blob/master/lib/Github/Client.php
+
+<br>
+<br>
+
+
 ### Issue Template
 ```
 ### Description
@@ -44,77 +67,7 @@ Tell us what happens instead
 <br>
 <br>
 
-### PHP
-* Pretty print a variable.
-  ```php
-  <?php
-  highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
-  ?>
-  ```
-* Install ext-imagick on macos
-   ```bash
-   brew instal pkg-config
-   brew install imagemagick
-   pecl install imagick
-   ```
 
-<br>
-<br>
-
-### PHPUnit
-* Disable deprecations notifications
-  ```xml
-      <server name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
-  ```
-
-<br>
-<br>
-
-### SQL
-* Show sql tables by size
-  ```sql
-  SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
-  FROM information_schema.tables 
-  WHERE table_schema='db_name' order by tablesize_mb;
-  ```
-  
-* Show Sql Import status
-  ```sh
-  pv sqlfile.sql | mysql -u user -p dbname
-  ```
-
-* sql import error `Unknown collation: 'utf8mb4_0900_ai_ci'`
-  ```sh
-  # For mac.
-  sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' 2019-10-26-prod.sql
-  
-  # For linux.
-  sed -e 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' -i myfilename.sql
-  ```
-  Solution from [this github issue](https://github.com/drud/ddev/issues/1902)<br>
-  This usually happens when importing from mysql 8
-  
-* sql import error `@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty`
- 
-  ```sh
-  ../vendor/bin/drush sql-dump --extra-dump=--set-gtid-purged=OFF | gzip > /tmp/db-backup.sql.gz
-  ```
-  Solution from [this stackoverflow issue](https://superuser.com/questions/906843/import-mysql-data-failed-with-error-1839)
-  
-* sql give SUPER priveleges to a user
-  ```sql
-  grant super on *.* to 'my_user'@'localhost';
-  revoke super on *.* from 'my_user'@'localhost';
-  ```
-* search within sql file
-  ```bash
-  sed -n -e 123456p your-file.sql
-  sed -n 123455,123457p your-file.sql
-  ```
-  
-
-<br>
-<br>
 
 ### Docker
 ##### SSH into docker-compose container
@@ -127,9 +80,9 @@ docker-compose -f docker-compose.yml exec -e php /bin/sh
 docker-compose -f docker-compose.yml -f docker-compose.osx.yml exec -e XDEBUG_MODE=off -u root php /bin/sh
 ```
   
+<br>
+<br>
 
-<br>
-<br>
 
 ### Drupal
 
@@ -163,7 +116,7 @@ $variables = Error::decodeException($e);
 <br>
 <br>
 
-##### Theme
+**Theme**
 * Theme a form
 
   This Requires a hook_theme().
@@ -175,8 +128,37 @@ $variables = Error::decodeException($e);
   ]
   ``` 
 
+**Custom Solr Functions**
+
+Drupal: hook_search_api_solr_query_alter()
+```php
+// If the date is in the future, give the score a diminshing boost.
+$solr_field_names = $query->getIndex()->getServerInstance()->getBackend()->getSolrFieldNames($query->getIndex());
+$boost_functions = [];
+if ($solr_field_names['future_only_date']) {
+  $boost_functions[] = 'if(min(0,sub(ms(NOW/HOUR),ms(' . $solr_field_names['future_only_date'] . '))),recip(ms(' . $solr_field_names['future_only_date'] . ',NOW/HOUR),3.16e-11,3,.9),0)^2';
+}
+
+// Boost content_type_to_match Content based on the published date.
+// The closer the date is to the current date, the higher the boost.
+if ($solr_field_names['published_date']) {
+  $boost_functions[] = 'if(eq(' . $solr_field_names['type'] .',\'content_type_to_match\'),recip(abs(ms(' . $solr_field_names['published_date'] . ',NOW/HOUR)),3.16e-11,3,.9),0)^2';
+}
+
+// Apply all the boost functions.
+if ($boost_functions) {
+  $boost_functions = implode(' ', $boost_functions);
+  $solarium_query->getEDisMax()->setBoostFunctions($boost_functions);
+  $solarium_query->addParam('defType', 'edismax');
+}
+```
+Links to helpful webpages with graphs.
+* https://atendesigngroup.com/blog/drupal-8-apache-solr-boost-search-term-relevance-publish-date
+* https://www.hashbangcode.com/article/drupal-8-date-search-boosting-search-api-and-solr-search
+  
 <br>
 <br>
+
 
 ### JS
 * Console log with auto-indents
@@ -186,8 +168,7 @@ $variables = Error::decodeException($e);
   }
   ```
   
-  
-#### GatsbyJS
+##### GatsbyJS
 * Prevent render before running server side js [link](https://www.joshwcomeau.com/react/the-perils-of-rehydration/)
   ```
   const [hasMounted, setHasMounted] = React.useState(false);
@@ -199,7 +180,7 @@ $variables = Error::decodeException($e);
   }
   ```
   
-#### Vue
+##### Vue
 * No Chunks, No Hash
    ```
    // vue.config.js
@@ -213,6 +194,7 @@ $variables = Error::decodeException($e);
 
 <br>
 <br>
+
 
 ### Linux
 * Rsync remote to local
@@ -264,6 +246,7 @@ $variables = Error::decodeException($e);
 <br>
 <br>
 
+
 ### Mac
 * Remount NTFS drive as writable (Install osxfuse + ntfs-3g first)
    ```
@@ -271,18 +254,41 @@ $variables = Error::decodeException($e);
    sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other -o auto_xattr
    ```
 
-### Composer
-* Get all composer config
-  ```bash
-  composer config --list --global
+<br>
+<br>
+
+
+### PHP
+* Pretty print a variable.
+  ```php
+  <?php
+  highlight_string("<?php\n\$var_name =\n" . var_export($var_name, true) . ";\n?>");
+  ?>
   ```
-* Default global home dir
-  ```
-  ~/.config/composer
+* Install ext-imagick on macos
+   ```bash
+   brew instal pkg-config
+   brew install imagemagick
+   pecl install imagick
+   ```
+* Get configuration file
+   ```bash
+   php -r "phpinfo();" | grep php.ini
+   ```
+
+<br>
+<br>
+
+
+### PHPUnit
+* Disable deprecations notifications
+  ```xml
+      <server name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
   ```
 
-### Code References
-* Client - https://github.com/KnpLabs/php-github-api/blob/master/lib/Github/Client.php
+<br>
+<br>
+
 
 ### psql
 * Connect
@@ -315,36 +321,6 @@ $variables = Error::decodeException($e);
 <br>
 <br>
 
-### Custom Solr Functions
-
-Drupal: hook_search_api_solr_query_alter()
-```php
-// If the date is in the future, give the score a diminshing boost.
-$solr_field_names = $query->getIndex()->getServerInstance()->getBackend()->getSolrFieldNames($query->getIndex());
-$boost_functions = [];
-if ($solr_field_names['future_only_date']) {
-  $boost_functions[] = 'if(min(0,sub(ms(NOW/HOUR),ms(' . $solr_field_names['future_only_date'] . '))),recip(ms(' . $solr_field_names['future_only_date'] . ',NOW/HOUR),3.16e-11,3,.9),0)^2';
-}
-
-// Boost content_type_to_match Content based on the published date.
-// The closer the date is to the current date, the higher the boost.
-if ($solr_field_names['published_date']) {
-  $boost_functions[] = 'if(eq(' . $solr_field_names['type'] .',\'content_type_to_match\'),recip(abs(ms(' . $solr_field_names['published_date'] . ',NOW/HOUR)),3.16e-11,3,.9),0)^2';
-}
-
-// Apply all the boost functions.
-if ($boost_functions) {
-  $boost_functions = implode(' ', $boost_functions);
-  $solarium_query->getEDisMax()->setBoostFunctions($boost_functions);
-  $solarium_query->addParam('defType', 'edismax');
-}
-```
-Links to helpful webpages with graphs.
-* https://atendesigngroup.com/blog/drupal-8-apache-solr-boost-search-term-relevance-publish-date
-* https://www.hashbangcode.com/article/drupal-8-date-search-boosting-search-api-and-solr-search
-  
-<br>
-<br>
 
 ### Other
 * Faster npm install (Also try `npm ci`
@@ -370,7 +346,6 @@ trial
   fastcgi_buffer_size 32k;
   ```
 
-  
 * Increase 504 Nginx Gateway w/ php-fpm
   You may only need the nginx change
   ```
@@ -414,9 +389,63 @@ trial
   %jonny ALL=(root) NOPASSWD: VAGRANT_EXPORTS_CHOWN, VAGRANT_EXPORTS_MV, VAGRANT_NFSD_CHECK, VAGRANT_NFSD_START, VAGRANT_NFSD_CHECK_2, VAGRANT_NFSD_START_2, VAGRANT_NFSD_APPLY
   ```
   
+<br>
+<br>
+
+
 ### Slack Themes
 * Drupal `#0c1e3e,#153161,#0678BE,#FFFFFF,#153161,#FFFFFF,#FFA500,#FFA500`
 * Drupal `#193549,#E7412A,#FFC600,#005D66,#E7412A,#FFFFFF,#FFC600,#E7412A,#005D66,#FFFFFF`
+
+<br>
+<br>
+
+
+### SQL
+* Show sql tables by size
+  ```sql
+  SELECT (data_length+index_length)/power(1024,2) tablesize_mb, table_name 
+  FROM information_schema.tables 
+  WHERE table_schema='db_name' order by tablesize_mb;
+  ```
+  
+* Show Sql Import status
+  ```sh
+  pv sqlfile.sql | mysql -u user -p dbname
+  ```
+
+* sql import error `Unknown collation: 'utf8mb4_0900_ai_ci'`
+  ```sh
+  # For mac.
+  sed -i '' 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' 2019-10-26-prod.sql
+  
+  # For linux.
+  sed -e 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' -i myfilename.sql
+  ```
+  Solution from [this github issue](https://github.com/drud/ddev/issues/1902)<br>
+  This usually happens when importing from mysql 8
+  
+* sql import error `@@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty`
+ 
+  ```sh
+  ../vendor/bin/drush sql-dump --extra-dump=--set-gtid-purged=OFF | gzip > /tmp/db-backup.sql.gz
+  ```
+  Solution from [this stackoverflow issue](https://superuser.com/questions/906843/import-mysql-data-failed-with-error-1839)
+  
+* sql give SUPER priveleges to a user
+  ```sql
+  grant super on *.* to 'my_user'@'localhost';
+  revoke super on *.* from 'my_user'@'localhost';
+  ```
+* search within sql file
+  ```bash
+  sed -n -e 123456p your-file.sql
+  sed -n 123455,123457p your-file.sql
+  ```
+
+<br>
+<br>
+
 
 ### Notes to self
 * When creating a custom views filter, make sure you create a schema file to map the schema settings. (e.g. `config/schema/module.views.schema.yml`)
