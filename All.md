@@ -454,29 +454,30 @@ trial
 <br>
 
 
-### XDebug
-* XDebug for command line
+### XDebug (Version 3 only)
+* Debugging Command Line (with PHPSTORM)
   * (preferred) run these EXPORT commands each time you need it.
     ```
-    export XDEBUG_CONFIG="idekey=PHPSTORM remote_enable=1 remote_mode=req remote_port=9000 remote_host=10.0.2.2 remote_connect_back=0"
-    export PHP_IDE_CONFIG="serverName=nameOfYourServer"
+    export XDEBUG_CONFIG="idekey=PHPSTORM mode=debug start_with_request=trigger remote_port=9000"
+    export PHP_IDE_CONFIG="serverName=nameOfYourServerInPhpStorm"
     ```
   * OR Set cli php.ini
     ```
     [XDebug]
     zend_extension="/usr/lib/php/7.4/modules/xdebug-2.9.5.so"
 
-    xdebug.remote_enable=1
-    xdebug.remote_host=10.0.2.2
-    xdebug.remote_port=9000
+    xdebug.mode=develop,debug
+    xdebug.client_host=10.0.2.2
+    xdebug.client_port=9000
     xdebug.idekey=PHPSTORM
-    xdebug.remote_autostart=true (I dont think I need this one)
     ```
   
-* fpm php.ini
+* Debugging Browser Requests
   ```
-  xdebug.remote_enable = 1 
-  xdebug.remote_connect_back = 0
+  xdebug.mode=develop,debug
+  xdebug.client_host=10.0.2.2
+  xdebug.client_port=9000
+  xdebug.start_with_request=yes
   xdebug.idekey = PHPSTORM
   ```
   
