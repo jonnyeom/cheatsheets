@@ -6,7 +6,7 @@
 [Issue Template](#issue-template)  
 [javascript](#js)  
 [GatsbyJS](#gatsbyjs)  
-[linux](#linux)  
+[linux](#cli)  
 [mac](#mac)  
 [notes to self](#notes-to-self)  
 [other](#other)  
@@ -196,7 +196,7 @@ Links to helpful webpages with graphs.
 <br>
 
 
-### Linux
+### CLI
 * Rsync remote to local
 
   ```
@@ -231,6 +231,11 @@ Links to helpful webpages with graphs.
 * Change default shell
   ```sh
   usermod --shell /bin/bash username
+  ```
+  
+* Append file to another
+  ```sh
+  cat old_file file_to_append_to | sponge file_to_append_to
   ```
   
 * Bash arrow completion
