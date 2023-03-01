@@ -1,4 +1,5 @@
 
+[cli](#cli)  
 [composer](#composer)  
 [code references](#code-references)  
 [drupal](#drupal)  
@@ -6,11 +7,11 @@
 [Issue Template](#issue-template)  
 [javascript](#js)  
 [GatsbyJS](#gatsbyjs)  
-[linux](#cli)  
+[kubernetes](#kubernetes)  
 [mac](#mac)  
 [notes to self](#notes-to-self)  
 [other](#other)  
-[php](#php)  
+[PHP](#php)  
 [PHPUnit](#phpunit)  
 [psql](#psql)  
 [slack themes](#slack-themes)  
@@ -246,6 +247,23 @@ Links to helpful webpages with graphs.
   "\e[A":history-search-backward
   ## arrow down
   "\e[B":history-search-forward
+  ```
+
+<br>
+<br>
+
+
+### Kubernetes
+
+* Create login token for user "admin-user"
+  ```bash
+  kubectl -n namespace-name create token admin-user
+  ```
+
+* ssh into kubernetes pod
+  ```bash
+  kubectl get pods -A
+  kubectl exec -it --namespace namespace-name pod-name -- bash
   ```
 
 <br>
