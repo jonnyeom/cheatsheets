@@ -291,7 +291,7 @@ Links to helpful webpages with graphs.
     Project.find_each do |project|
       pipelineCount = Ci::Pipeline.where(project: project).where("created_at > ?", 1.year.ago).count()
       if pipelineCount > 0
-        csv << [project.id, "#{project.namespace.name.to_s}/#{project.name.to_s}", #{pipelineCount}]"
+        csv << [project.id, "#{project.namespace.name.to_s}/#{project.name.to_s}", "#{pipelineCount}"]
         puts "id #{project.id}: #{project.namespace.name.to_s}/#{project.name.to_s} pipelines: #{pipelineCount}"
       end
     end
