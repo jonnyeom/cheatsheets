@@ -7,7 +7,7 @@
 [Issue Template](#issue-template)  
 [javascript](#js)  
 [GatsbyJS](#gatsbyjs)  
-[Gitlab Rails](#gitlab-rails)
+[Gitlab Rails](#gitlab-rails)  
 [kubernetes](#kubernetes)  
 [mac](#mac)  
 [notes to self](#notes-to-self)  
