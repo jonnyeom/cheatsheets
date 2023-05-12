@@ -7,6 +7,7 @@
 [Issue Template](#issue-template)  
 [javascript](#js)  
 [GatsbyJS](#gatsbyjs)  
+[Gitlab Rails](#gitlab-rails)
 [kubernetes](#kubernetes)  
 [mac](#mac)  
 [notes to self](#notes-to-self)  
@@ -252,6 +253,53 @@ Links to helpful webpages with graphs.
 <br>
 <br>
 
+### Gitlab Rails
+- Models https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/models/project.rb
+
+* Loops through project
+  ```ruby
+  Project.find_each do | project|
+    <!--   Print namespace/name   -->
+    puts "id #{project.id}: #{project.namespace.name.to_s}/#{project.name.to_s}"
+  end
+  ```
+* Get Pipelines per project
+  ```ruby
+  projects = Project.find_by(***)
+  projects.each do | project|
+    pipelineCount = Ci::Pipeline.where(project: project).where("created_at > ?", 1.year.ago).count()
+    if pipelineCount > 0
+      puts "pipelines: #{pipelineCount} id #{project.id}: #{project.namespace.name.to_s}/#{project.name.to_s}"
+    end
+  end
+* Write to CSV
+  ```ruby
+  file = "/tmp/your-file-name.csv"
+  
+  CSV.open(file, 'w') do |csv|
+    Project.find_each do |project|
+      csv << [project.id, "id #{project.id}: #{project.namespace.name.to_s}/#{project.name.to_s}"]
+    end
+  end
+  ```
+* Put it all together
+  ```ruby
+  file = "/tmp/your-file-name.csv"
+  
+  CSV.open(file, 'w') do |csv|
+    csv << ["Id", "Namespace/Name", "Pipelines in the last year"]
+    Project.find_each do | project|
+      pipelineCount = Ci::Pipeline.where(project: project).where("created_at > ?", 1.year.ago).count()
+      if pipelineCount > 0
+        csv << [project.id, "#{project.namespace.name.to_s}/#{project.name.to_s}", #{pipelineCount}]
+        puts "id #{project.id}: #{project.namespace.name.to_s}/#{project.name.to_s} pipelines: #{pipelineCount}"
+      end
+    end
+  end
+  ```
+
+<br>
+<br>
 
 ### Kubernetes
 
