@@ -525,7 +525,9 @@ trial
 <br>
 
 
-### XDebug (Version 3 only)
+### XDebug
+> **(Version 3 only)**
+
 * Debugging Command Line (with PHPSTORM)
   * (preferred) run these EXPORT commands each time you need it.
     ```
